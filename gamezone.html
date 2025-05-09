@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameZone Emulator</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .emulator-container {
+      width: 80%;
+      max-width: 900px;
+      background-color: #252525;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .emulator-header {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .emulator-header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .nav-button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-button:hover {
+      background-color: #0056b3;
+    }
+
+    .emulator-main {
+      padding: 20px;
+      min-height: 300px;
+      background: #1e1e1e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .emulator-footer {
+      padding: 10px;
+      text-align: center;
+      background-color: #333;
+      font-size: 14px;
+    }
+
+    /* Game UI */
+    .game-ui {
+      text-align: center;
+    }
+
+    .game-screen {
+      width: 100%;
+      height: 200px;
+      background-color: black;
+      border: 2px solid #4caf50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: lime;
+      font-family: monospace;
+    }
+
+    /* Buttons UI */
+    .game-buttons {
+      text-align: center;
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .game-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .game-button:hover {
+      background-color: #388e3c;
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="emulator-container">
+    <header class="emulator-header">
+      <h1>GameZone Emulator</h1>
+      <nav>
+        <button id="loadGameUi" class="nav-button">Load Game UI</button>
+        <button id="loadButtons" class="nav-button">Load Buttons</button>
+      </nav>
+    </header>
+
+    <main id="main-content" class="emulator-main">
+      <p>Select a component to load.</p>
+    </main>
+
+    <footer class="emulator-footer">
+      <p>GameZone Emulator © 2025</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mainContent = document.getElementById("main-content");
+
+      function loadGameUi() {
+        const gameUi = `
+          <div class="game-ui">
+            <h2>Game Screen</h2>
+            <div class="game-screen">
+              <p>Game is loading...</p>
+            </div>
+          </div>
+        `;
+        mainContent.innerHTML = gameUi;
+        mainContent.classList.add("fade-in");
+      }
+
+      function loadButtons() {
+        const buttons = `
+          <div class="game-buttons">
+            <h2>Game Controls</h2>
+            <div class="buttons-container">
+              <button class="game-button">Up</button>
+              <button class="game-button">Down</button>
+              <button class="game-button">Left</button>
+              <button class="game-button">Right</button>
+              <button class="game-button">Start</button>
+              <button class="game-button">Select</button>
+            </div>
+          </div>
+        `;
+        mainContent.innerHTML = buttons;
+        mainContent.classList.add("fade-in");
+      }
+
+      document.getElementById("loadGameUi").addEventListener("click", loadGameUi);
+      document.getElementById("loadButtons").addEventListener("click", loadButtons);
+    });
+  </script>
+</body>
+</html>
